@@ -1,0 +1,28 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        generate_for:
+          - lib/clients/**.dart
+          - lib/models/**.dart
+        options:
+          build_extensions:
+            # I want this line to "work":
+            # '^lib/**/{{}}.dart': 'lib/generated/model/{{}}.g.dart'
+            # 'lib/{{path}}/{{file}}.dart': 'lib/{{path}}/generated/{{file}}.g.dart'
+            # '^lib/models/{{file}}.dart': 'lib/models/generated/{{file}}.g.dart'
+            '^lib/{{path}}/{{file}}.dart': 'lib/{{path}}/generated/{{file}}.g.dart'
+      freezed:
+        options:
+          build_extensions:
+            # I want this line to "work":
+            # '^lib/**/{{}}.dart': 'lib/generated/model/{{}}.freezed.dart'
+            #            'lib/{{path}}/{{file}}.dart': 'lib/{{path}}/generated/{{file}}.freezed.dart'
+            # '^lib/models/{{file}}.dart': 'lib/models/generated/{{file}}.freezed.dart'
+            '^lib/{{path}}/{{file}}.dart': 'lib/{{path}}/generated/{{file}}.freezed.dart'
+          field_rename: snake
+          explicit_to_json: true
+      json_serializable:
+        options:
+          field_rename: snake
+          explicit_to_json: true
