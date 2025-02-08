@@ -1,6 +1,6 @@
 name: flutter_ignite
 description: "A flutter boilerplate project consisting of StorageManager, ThemeManager, LogManager"
-version: 0.2.7
+version: 0.2.7+1
 homepage: "https://github.com/tanvoid0/flutter_ignite"
 
 environment:
